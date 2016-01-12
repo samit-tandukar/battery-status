@@ -12,7 +12,7 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="batteryStatus" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"/>
-        <ProgressBar x:Name="progressInPer" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Width="360" Height="40" SmallChange="0.1"/>
+        <TextBlock x:Name="BatteryStatus" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"/>
+        <ProgressBar x:Name="ProgressInPer" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Width="360" Height="40" SmallChange="0.1"/>
     </Grid>
 </Page>

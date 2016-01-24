@@ -39,7 +39,7 @@ namespace BatteryStatus
             string per = getPercentage.ToString("##%");
             ProgressInPer.Value = getPercentage * 100;
             var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
-            BatteryStatus.Text = loader.GetString("status") + status + " - " + loader.GetString("percentage") + per;
+            BatteryStatus.Text = loader.GetString("status") + loader.GetString(status.ToString()) + " - " + loader.GetString("percentage") + per;
         }
     }
 }

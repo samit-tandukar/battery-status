@@ -1,4 +1,5 @@
 ﻿using System;
+using Windows.ApplicationModel.Background;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -11,9 +12,33 @@ namespace BatteryStatus
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private string task_name = "batterystatus_task";
+
         public MainPage()
         {
             this.InitializeComponent();
+            RegisterBackgroundTask();
+        }
+
+        private async void RegisterBackgroundTask()
+        {
+            foreach (var task in BackgroundTaskRegistration.AllTasks)
+            {
+                if (task.Value.Name == task_name)
+                {
+                    return; //IF THE TASK IS ALREADY REGISTERED, THE CODE EXITS
+                }
+            }
+            var builder = new BackgroundTaskBuilder();
+            builder.Name = task_name;
+            builder.TaskEntryPoint = "Tasks.updater";
+            builder.SetTrigger(new TimeTrigger(15, false));
+            builder.CancelOnConditionLoss = true;
+            BackgroundAccessStatus access_status = await BackgroundExecutionManager.RequestAccessAsync();
+            if (access_status != BackgroundAccessStatus.Denied)
+            {
+                BackgroundTaskRegistration mytask = builder.Register();
+            }
         }
 
         private async void AggregateBattery_ReportUpdated(Windows.Devices.Power.Battery sender, object args)

@@ -9,10 +9,10 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="BatteryStatus" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"/>
-        <ProgressBar x:Name="ProgressInPer" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Width="360" Height="40" SmallChange="0.1"/>
+        <ProgressBar x:Name="ProgressInPer" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Width="360" Height="40" SmallChange="0.1" Background="{ThemeResource SystemControlBackgroundBaseMediumLowBrush}" Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"/>
     </Grid>
 </Page>
